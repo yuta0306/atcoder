@@ -17,10 +17,10 @@ else;
 fi
 
 echo 'login AtCoder'
+poetry install
 poetry run oj login https://atcoder.jp/ <<< "$username\n$password"
 acc login <<< "$username\n$password"
-
-acc new $1 <<< 'a\n'
+poetry run acc new $1 <<< 'a\n'
 
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --print-to-pdf --headless "https://atcoder.jp/contests/$1/tasks_print?lang=ja"
 mv output.pdf $1/problems.pdf
